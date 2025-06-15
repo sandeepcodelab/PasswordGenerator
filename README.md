@@ -21,9 +21,9 @@ This project is a password generator system built using React. It allows users t
 
 ---
 
-## Demo
+## Screenshot
 
-[![Live Demo Screenshot](https://via.placeholder.com/600x400.png?text=Live+Demo)]
+![Screenshot](src/assets/passwordGenerator.png)
 
 ---
 
@@ -33,7 +33,7 @@ To run this project locally, follow these steps:
 
 ### 1. Clone the repository
 
-   git clone https://github.com/sandeepcodelab/PasswordGenerator.git
+    git clone https://github.com/sandeepcodelab/PasswordGenerator.git
 
 ### 2. Navigate to the project directory
 
