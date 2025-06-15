@@ -4,19 +4,6 @@ A simple and customizable password generator built with React.
 
 ---
 
-## Table of Contents
-
-- [About](#about)  
-- [Features](#features)  
-- [Demo](#demo)  
-- [Installation](#installation)  
-- [Usage](#usage)  
-- [Technologies](#technologies)  
-- [Contributing](#contributing)  
-- [License](#license)  
-
----
-
 ## About
 
 This project is a password generator system built using React. It allows users to generate strong, random passwords based on selected criteria such as length, inclusion of uppercase letters, numbers, and symbols.
@@ -26,7 +13,7 @@ This project is a password generator system built using React. It allows users t
 ## Features
 
 - Generate passwords of customizable length  
-- Include/exclude uppercase letters  
+- Uppercase and lowercase letters  
 - Include/exclude numbers  
 - Include/exclude special characters  
 - Copy password to clipboard with a single click  
@@ -36,8 +23,7 @@ This project is a password generator system built using React. It allows users t
 
 ## Demo
 
-Add your live demo link here (if available):  
-[Live Demo](https://your-demo-link.com)
+[![Live Demo Screenshot](https://via.placeholder.com/600x400.png?text=Live+Demo)]
 
 ---
 
@@ -45,19 +31,19 @@ Add your live demo link here (if available):
 
 To run this project locally, follow these steps:
 
-1. Clone the repository
+### 1. Clone the repository
 
    git clone https://github.com/sandeepcodelab/PasswordGenerator.git
 
-2. Navigate to the project directory
+### 2. Navigate to the project directory
 
     cd react-password-generator
 
-3. Install dependencies
+### 3. Install dependencies
 
     npm install
 
-4. Start the development server
+### 4. Start the development server
 
     npm run dev
 
