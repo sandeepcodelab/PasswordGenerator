@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import './App.css'
 
 function App() {
@@ -7,6 +7,7 @@ function App() {
   const [isNumberAllowed, setIsNumberAllowed] = useState(false)
   const [isCharAllowed, setIsCharAllowed] = useState(false)
   const [password, setPassword] = useState('')
+  const [buttonText, setButtonText] = useState('Copy')
 
   const generatePassword = useCallback(() => {
 
@@ -14,10 +15,6 @@ function App() {
     
     if(isNumberAllowed) passText += '0123456789'
     if(isCharAllowed) passText += '~!@#$%^&*()_-+=[]{}'
-
-    console.log(isNumberAllowed)
-    console.log(isCharAllowed)
-    console.log(passText)
 
     let generatePass = ''
 
@@ -36,23 +33,32 @@ function App() {
   useEffect(() => {
 
     generatePassword()
+    setButtonText("Copy")
 
   }, [length, isNumberAllowed, isCharAllowed, generatePassword])
 
 
-  const copyPassword = useCallback(() => {})
+  let passwordRef = useRef()
+  
+  const copyPassword = useCallback(() => {
+    
+    window.navigator.clipboard.writeText(password)
+    passwordRef.current?.select()
+    setButtonText("Copied")
+
+  }, [password])
 
   return (
     <div className='bg-gray-900 w-full h-screen flex justify-center items-start'>
       <div className='bg-white md:w-2xl px-5 md:px-0 mt-20 rounded'>
         <h1 className='text-center text-3xl font-bold mt-5'>Password Generator</h1>
         <div className='flex justify-center items-center mt-8'>
-          <input type="text" value={password} className='border-2 border-gray-800 border-r-0 md:w-lg h-12 rounded-tl-md rounded-bl-md outline-none px-2 font-bold bg-blue-100' readOnly />
-          <button className='bg-gray-800 text-white w-25 h-12 border-2 border-gray-800 rounded-tr-md rounded-br-md font-bold cursor-pointer hover:bg-gray-700 hover:border-gray-700'>Copy</button>
+          <input type="text" value={password} ref={passwordRef} className='border-2 border-gray-800 border-r-0 md:w-lg h-12 rounded-tl-md rounded-bl-md outline-none px-2 font-bold bg-blue-100' readOnly />
+          <button onClick={copyPassword} className='bg-gray-800 text-white w-25 h-12 border-2 border-gray-800 rounded-tr-md rounded-br-md font-bold cursor-pointer hover:bg-gray-700 hover:border-gray-700'>{buttonText}</button>
         </div>
         <div className='flex flex-col md:flex-row justify-center md:items-center py-5'>
           <p>
-          <input type="range" min={8} max={64} value={length} onChange={(e) => setLength(e.target.value)} className='w-25' /> Length({length})
+          <input type="range" min={8} max={64} value={length} onChange={(e) => setLength(e.target.value)} className='w-25 cursor-pointer' /> Length({length})
           </p>
 
           <label htmlFor="numbers" className='cursor-pointer md:px-5'>
